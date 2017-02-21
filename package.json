@@ -1,0 +1,17 @@
+{
+  "name": "async",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.1",
+    "node-openweather": "0.0.5",
+    "nodemon": "^1.11.0",
+    "request": "^2.79.0"
+  }
+}
