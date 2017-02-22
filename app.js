@@ -51,6 +51,8 @@ app.get('/',function(req,res){
       info+="<div>|----------------------------------------------------------------------|</div>"
       info+="<div>|----------------------------------------------------------------------|</div>"
       info+="</div>"
+      info+='<div style="font-size: 14px;  margin: 0 auto;color: chocolate;text-align: center;"> <a href="https://angrycloud-weather-app.herokuapp.com/info" type="button"> How to use this service </a> </div>';
+
       return print(info);
     },function(data){
       errorMessage+=" Location error : "+error+'\n';
@@ -63,7 +65,9 @@ app.get('/',function(req,res){
 });
 
 // when you want to use static HTML pages.
-app.use('/index',express.static(__dirname+'/public'))
+app.use('/index',express.static(__dirname+'/public'));
+app.use('/info',express.static(__dirname+'/public/info.html'))
+
 //
 app.listen(PORT,function(){
   console.log('Server work at localhot:'+PORT);
