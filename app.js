@@ -15,18 +15,20 @@ app.use(middleware.requireAuthentication);
 
 app.use(middleware.logger);
 app.get('/',function(req,res){
-  console.log(req.query);
-  console.log('/');
+  info='<meta charset="utf-8"/>';
   var errorMessage ='';
   var city = "Amman";
   if(req.query){
       city = req.query.city;
   }
-
   weather(city).then(
     function(data){
-      console.log('weather');
-      info+='<div>Weather info <i class"'+data.icon+'"></i> '+data.name +' '+data.temp+"</div>";
+      info+="<div style = 'margin:0 auto; text-align:center'>"
+      info+="<h1>Angry Cloud Weather App</h1>"
+      info+="<h4>Nodejs and Express</h4>"
+      info+='<div><h1>Weather infromation for <spane style="color:red;font-style: italic;font-family: monospace;">'+data.name+'</spane> city </h1></div>'
+      info+='<div> <i class"'+data.icon+'"></i> <h2 style="">Current temperature degree { '+data.temp+" &#176 }</h2></div>";
+      info+="</div>"
       return location()
     },function(error){
       errorMessage+=" Wether error : "+error+'\n';
@@ -36,7 +38,19 @@ app.get('/',function(req,res){
     function(data){
       console.log('location');
       var str=data.city+' loc '+data.loc;
-      info+="<div> Location info "+str+"</div> ";
+      info+="<div style='font-size: 8px;  margin: 0 auto;color: chocolate;text-align: center;'>"
+      info+="<div>|----------------------------------------------------------------------|</div>"
+      info+="<div>|----------------------------------------------------------------------|</div>"
+      info+="<div>|----------------------------------------------------------------------|</div>"
+      info+="<div>|----------------------------------------------------------------------|</div>"
+
+      info+="<div>  server location info "+str+"</div> ";
+
+      info+="<div>|----------------------------------------------------------------------|</div>"
+      info+="<div>|----------------------------------------------------------------------|</div>"
+      info+="<div>|----------------------------------------------------------------------|</div>"
+      info+="<div>|----------------------------------------------------------------------|</div>"
+      info+="</div>"
       return print(info);
     },function(data){
       errorMessage+=" Location error : "+error+'\n';
