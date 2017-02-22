@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Angry cloud, Weather app</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .centerText{
+        text-align:left;
+        margin:0 auto;
+      }
+    </style>
+  </head>
+  <body>
+
+
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Weather App</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+
+          </div><!--/.navbar-collapse -->
+        </div>
+      </nav>
+
+  <div class='jumbotron'>
+  <div class='container'>
+    <div class='row'>
+        <h1>Angry Cloud Weather App</h1>
+        <spane>Weather app v 0.0.1 <br> Nodjs, Express, open weather</spane>
+    </div>
+  </div>
+  </div>
+
+
+  <div class='container'>
+    <div class='row bg-danger'>
+      <h1>ERROR</h1>
+      <div class=" bg-warning">
+        <%= data.error%>
+      </div>
+    </div>
+    <div class="row">
+       <a href="https://angrycloud-weather-app.herokuapp.com/info" type="button"> How to use this service </a>
+    </div>
+    <hr>
+    <footer>
+      <p>© 2017 Angry Cloud, Inc.</p>
+    </footer>
+  </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+
+//
+// weather(function(currentWeather){
+//   console.log(currentWeather);
+// });
+//
+//
+//
+// location(function(location){
+//   console.log('City   : '+location.city);
+//   console.log('log/lat: '+location.loc);
+// });
+//
+
+
+/* // NPM package
+var weather = require('node-openweather')({
+  key: "a61916be03f8410e46604b1c7612bb7e",
+  accuracy: "like",
+  unit: "metric",
+  language: "en"
+});
+
+weather.city('Amman').now().then(function(res) {
+  console.log(res);
+}).catch(function(err) {
+  console.log(err);
+});
+*/
