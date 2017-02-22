@@ -1,9 +1,9 @@
 var request = require('request');
 //imperial = f
 //metric = c
-var url    = 'http://api.openweathermap.org/data/2.5/weather?q=Aqaba&units=metric&appid=a61916be03f8410e46604b1c7612bb7e';
 //
-module.exports = function(callback){
+module.exports = function(city,callback){
+  var url    = 'http://api.openweathermap.org/data/2.5/weather?q='+city+'&units=metric&appid=a61916be03f8410e46604b1c7612bb7e';
   return new Promise(function(resolve,reject){
     request({
         url: url,

@@ -15,9 +15,16 @@ app.use(middleware.requireAuthentication);
 
 app.use(middleware.logger);
 app.get('/',function(req,res){
+  console.log(req.query);
   console.log('/');
   var errorMessage ='';
-  weather().then(
+  var city = "Amman";
+  if(req.query){
+      city = req.query.city;
+  }
+
+
+  weather(city).then(
     function(data){
       console.log('weather');
       info+='<div>Weather info <i class"'+data.icon+'"></i> '+data.name +' '+data.temp+"</div>";
