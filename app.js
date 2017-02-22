@@ -23,7 +23,6 @@ app.get('/',function(req,res){
       city = req.query.city;
   }
 
-
   weather(city).then(
     function(data){
       console.log('weather');
@@ -50,7 +49,7 @@ app.get('/',function(req,res){
 });
 
 // when you want to use static HTML pages.
-app.use(express.static(__dirname+'/public'))
+app.use('/index',express.static(__dirname+'/public'))
 //
 app.listen(PORT,function(){
   console.log('Server work at localhot:'+PORT);
