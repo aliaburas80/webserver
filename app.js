@@ -21,8 +21,14 @@ app.get('/',function(req,res){
   var errorMessage ='';
   var city = "Amman";
   if(req.query){
+    if(req.query.city){
       city = req.query.city;
+    }else{
+      ejsData.error =" Wether error : code:1002, message: please add query to main link {?city=cityname} ";
+      res.render('errors', {data:ejsData});
+    }
   }
+
   weather(city).then(
     function(data){
      ejsData={
