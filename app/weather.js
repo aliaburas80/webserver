@@ -20,6 +20,7 @@ module.exports = function(city,callback){
                 message:body.message
               });
             }else{
+              console.log(body);
               resolve({
                 icon : body.weather[0].icon,
                 name : body.name,
