@@ -15,9 +15,13 @@ To see weather in any city in the word do the following
   <ul>
   <li> app using express to manage routs</li>
   <li> app using query in url to passing city name</li>
+  <li> app using ejs to format the pages.</li>
   </ul>
 </li>
-<li></li>
+<li>views folder contain all ejs files</li>
+<li>src folder contain all css, js and fonts files</li>
+<li>app folder contain weather.js, promies.js, location.js and middlewar.js files that app.js using them to make call with services</li>
+<li>public folder contain all static html pages</li>
 </ol>
 </div>
 <hr>
