@@ -5,7 +5,7 @@
 To see weather in any city in the word do the following 
 <ul>
   <li>open the following link https://angrycloud-weather-app.herokuapp.com/?city=amman</li>
-  <li> change the city in the query to see weather in city.</li>
+  <li> change the city in the query to see weather temperature and weather icon.</li>
 </ul>
 <hr>
 <footer>
