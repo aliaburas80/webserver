@@ -8,6 +8,19 @@ To see weather in any city in the word do the following
   <li> change the city in the query to see weather temperature and weather icon.</li>
 </ul>
 <hr>
+<div> 
+<h2> Weather app info</h2>
+<ol>
+<li> app.js contain the main logic
+  <ul>
+  <li> app using express to manage routs</li>
+  <li> app using query in url to passing city name</li>
+  </ul>
+</li>
+<li></li>
+</ol>
+</div>
+<hr>
 <footer>
 thanks <br>
 <a href='mailto:aliaburas80@gmail.com'> Ali Abu Ras</a><br>
