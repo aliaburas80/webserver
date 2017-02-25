@@ -6,12 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Angry cloud, Weather app</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-select.min.css" rel="stylesheet">
     <style>
       .centerText{
         text-align:left;
         margin:0 auto;
       }
     </style>
+
+
+    <script language="javascript">
+      window.onload =function(){
+          populateCountries("country", "city");
+        };
+
+        function onCityChange(){
+          document.forms["getWeather"].saction="/";
+          document.forms["getWeather"].submit();
+        }
+    </script>
+
   </head>
   <body>
 
@@ -44,11 +58,25 @@
 
 
   <div class='container'>
+    <div class='row'><h1> Please select city:</h1><h3>
+      <spane>Country: </spane><select id="country" name="country"></select>
+      <form id="getWeather" action="/"><spane>City: </spane><select name="city" id="city" onchange='onCityChange()'></select></form>
+      <%#
+    %>
+        <%# <select>
+          <option>Mustard</option>
+          <option>Ketchup</option>
+          <option>Relish</option>
+        </select>%>
+
+        </h3>
+    </div>
     <div class='row'>
         <h1>Current temperature degree in <spane><%= data.city%></spane> is <%= data.temp%>&#176 <img src="http://openweathermap.org/img/w/<%= data.icon%>.png"> </h1>
     </div>
     <div class='row'>
         <h1>IP ADDRESS : <%= data.ip%></h1>
+
         <div class="row centerText">
           <div class="row col-xs-3 col-sm-3 col-md-3 col-xl-3 ">
             <div class="bg-success">LOC</div>
@@ -75,7 +103,8 @@
     </footer>
   </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/cites.js"></script>
   </body>
 </html>

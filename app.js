@@ -13,20 +13,25 @@ function print(data){
     resolve(data);
   });
 }
-
+//
 app.use(middleware.requireAuthentication);
-
+//
 app.use(middleware.logger);
 app.get('/',function(req,res){
   var errorMessage ='';
-  var city = "Amman";
+  var city ;
   if(req.query){
     if(req.query.city){
       city = req.query.city;
     }else{
-      ejsData.error =" Wether error : code:1002, message: please add query to main link {?city=cityname} ";
-      res.render('errors', {data:ejsData});
+      ejsData={};
+      ejsData.err='';
+      ejsData.err =" Wether error : code:1002, message: please add query to main link {?city=cityname} ";
+
+    res.render('select');//  res.render('errors', {data:ejsData});
     }
+  }else{
+  //    res.render('select');
   }
 
   weather(city).then(
@@ -60,12 +65,10 @@ app.get('/',function(req,res){
     }
   );
 });
-
 // when you want to use static HTML pages.
 app.use(express.static(__dirname + '/src'));
 app.use('/index',express.static(__dirname+'/public'));
 app.use('/info',express.static(__dirname+'/public/info.html'))
-
 //
 app.listen(PORT,function(){
   console.log('Server work at localhot:'+PORT);
