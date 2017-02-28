@@ -61,18 +61,24 @@
     <div class='row'><h1> Please select city:</h1><h3>
       <spane>Country: </spane><select id="country" name="country"></select>
       <form id="getWeather" action="/"><spane>City: </spane><select name="city" id="city" onchange='onCityChange()'></select></form>
-      <%#
-    %>
-        <%# <select>
-          <option>Mustard</option>
-          <option>Ketchup</option>
-          <option>Relish</option>
-        </select>%>
-
         </h3>
     </div>
     <div class='row'>
         <h1>Current temperature degree in <spane><%= data.city%></spane> is <%= data.temp%>&#176 <img src="http://openweathermap.org/img/w/<%= data.icon%>.png"> </h1>
+        <div class="AllWeather row" id="AllWeaher">
+            <% for(var i=0; i<data.allWeather.length; i++) {%>
+               <div class="col-lg-3 col-md-3 col-ms-3 col-mx-3">
+                  <span><img src="http://openweathermap.org/img/w/<%= data.allWeather[i].weather[0].icon%>.png"> </span><br>
+                  <span> Max temp: <%=  data.allWeather[i].main.temp_max%>  </span><br>
+                  <span> Min temp: <%=  data.allWeather[i].main.temp_min%>  </span><br>
+                  <span> Weather : <%=  data.allWeather[i].weather.main%> <span>, <%=  data.allWeather[i].weather.description%>  </span> </span><br>
+                  <span> Clouds  : <%=  data.allWeather[i].clouds.all%>  </span><br>
+                  <span> Wind speed  : <%=  data.allWeather[i].wind.speed%> deg: <%=  data.allWeather[i].wind.speed%> </span><br>
+                  <span> Time    : <%=  data.allWeather[i].dt_txt%></span><br>
+                  <br>
+               </div>
+            <% } %>
+        </div>
     </div>
     <div class='row'>
         <h1>IP ADDRESS : <%= data.ip%></h1>

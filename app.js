@@ -1,5 +1,6 @@
 var weather = require('./app/weather');
 var location = require('./app/location');
+var weatherAll = require('./app/weatherForMonth')
 var express = require('express');
 var middleware=require('./app/middleware')
 var app=express();
@@ -8,11 +9,6 @@ var ejsData;
 app.set('view engine' , 'ejs')
 
 var PORT = process.env.PORT || 3300;
-function print(data){
-  return new Promise(function(resolve,reject){
-    resolve(data);
-  });
-}
 //
 app.use(middleware.requireAuthentication);
 //
@@ -27,7 +23,6 @@ app.get('/',function(req,res){
       ejsData={};
       ejsData.err='';
       ejsData.err =" Wether error : code:1002, message: please add query to main link {?city=cityname} ";
-
     res.render('select');//  res.render('errors', {data:ejsData});
     }
   }else{
@@ -57,13 +52,18 @@ app.get('/',function(req,res){
       ejsData.region = data.region;
       ejsData.country = data.country;
       ejsData.org=data.org;
-      res.render('index', {data:ejsData});
-
+      return weatherAll(city);
     },function(data){
       ejsData.error=" Location error : "+error;
       res.render('errors', {data:ejsData});
     }
-  );
+  ).then(function(data){
+    ejsData.allWeather = data.arr;
+    res.render('index', {data:ejsData});
+  },function(data){
+    ejsData.error=" Weather error : "+error;
+    res.render('errors', {data:ejsData});
+  });
 });
 // when you want to use static HTML pages.
 app.use(express.static(__dirname + '/src'));
