@@ -24,6 +24,7 @@ app.get('/',function(req,res){
       ejsData.err='';
       ejsData.err =" Wether error : code:1002, message: please add query to main link {?city=cityname} ";
     res.render('select');//  res.render('errors', {data:ejsData});
+    return;
     }
   }else{
   //    res.render('select');
